@@ -47,7 +47,7 @@ button
   color: #FFF
   font-weight: bold
   border: 1px solid $primary-color
-  border-radius: 2px
+  border-radius: 5px
 
   &:hover
     cursor: pointer
