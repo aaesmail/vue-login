@@ -1,6 +1,14 @@
 import users from './users'
 
 export default {
+  autoLogin({ commit }) {
+    const userEmail = localStorage.getItem('email')
+
+    if (userEmail) {
+      commit('login', userEmail)
+    }
+  },
+
   login({ commit }, user) {
     const userIndex = users.findIndex(
       (userData) =>
@@ -13,11 +21,13 @@ export default {
     } else {
       // valid login
       commit('login', user.email)
+      localStorage.setItem('email', user.email)
       return true
     }
   },
 
   logout({ commit }) {
+    localStorage.removeItem('email')
     commit('logout')
   },
 }

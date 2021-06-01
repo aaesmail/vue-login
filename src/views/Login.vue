@@ -12,7 +12,13 @@
 </template>
 
 <script>
+import store from '../store'
+
 export default {
+  beforeRouteEnter(to, from, next) {
+    store.getters['auth/isAuth'] ? next('/welcome') : next()
+  },
+
   data() {
     return {
       email: '',

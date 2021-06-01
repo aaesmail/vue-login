@@ -2,6 +2,14 @@
   <router-view />
 </template>
 
+<script>
+export default {
+  created() {
+    this.$store.dispatch('auth/autoLogin')
+  },
+}
+</script>
+
 <style lang="sass">
 html, body
   font-family: Avenir, Helvetica, Arial, sans-serif
