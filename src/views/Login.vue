@@ -12,13 +12,7 @@
 </template>
 
 <script>
-import store from '../store'
-
 export default {
-  beforeRouteEnter(to, from, next) {
-    store.getters['auth/isAuth'] ? next('/welcome') : next()
-  },
-
   data() {
     return {
       email: '',
@@ -28,12 +22,17 @@ export default {
 
   methods: {
     async login() {
-      console.log(
-        await this.$store.dispatch('auth/login', {
-          email: this.email,
-          password: this.password,
-        })
-      )
+      const loggedIn = await this.$store.dispatch('auth/login', {
+        email: this.email,
+        password: this.password,
+      })
+
+      if (loggedIn) {
+        // successful
+        this.$router.push('/welcome')
+      } else {
+        // invalid login information
+      }
     },
 
     logout() {
