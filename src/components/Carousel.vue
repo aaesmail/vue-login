@@ -24,6 +24,7 @@ export default {
     return {
       current: 0,
 
+      transitionTimeout: null,
       transition: false,
 
       images: [
@@ -58,11 +59,15 @@ export default {
   methods: {
     slideChange(index) {
       this.transition = true
-      setTimeout(() => {
+      this.transitionTimeout = setTimeout(() => {
         this.transition = false
         this.current = index
       }, 500)
     },
+  },
+
+  unmounted() {
+    clearTimeout(this.transitionTimeout)
   },
 }
 </script>
