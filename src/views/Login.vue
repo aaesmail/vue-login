@@ -53,7 +53,7 @@ export default {
 
 .container
   margin: 0
-  padding: 0
+  padding-top: 50%
   height: 100%
   display: flex
   flex-direction: column-reverse
@@ -61,6 +61,7 @@ export default {
 
   @media (min-width: $layout-breakpoint-small)
     flex-direction: row
+    padding: 0
 
 .column
     margin: 0
