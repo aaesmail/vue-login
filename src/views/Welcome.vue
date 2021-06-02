@@ -38,6 +38,9 @@ h1
   padding: 0
   font-size: 20px
 
+  @media (min-width: $layout-breakpoint-small)
+    font-size: 30px
+
 button
   margin: 20px
   padding: 0
@@ -53,9 +56,4 @@ button
     cursor: pointer
     background: $primary-color-light
     border-color: $primary-color-light
-
-
-@media (min-width: $layout-breakpoint-small)
-  h1
-    font-size: 30px
 </style>
