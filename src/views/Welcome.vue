@@ -7,12 +7,15 @@
 
 <script>
 export default {
+  // get the user email to display in the welcome message
   computed: {
     userEmail() {
       return this.$store.getters['auth/userEmail']
     },
   },
 
+  // handler for the logout button
+  // logout and redirect to login page
   methods: {
     logout() {
       this.$store.dispatch('auth/logout')

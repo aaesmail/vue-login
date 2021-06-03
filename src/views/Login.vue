@@ -13,6 +13,9 @@
 import Carousel from '../components/Carousel'
 import LoginPart from '../components/LoginPart'
 
+// Just use this view as a holder for the two sections of this page
+// The sliding carousel and the login form
+
 export default {
   components: {
     Carousel,

@@ -28,6 +28,8 @@
 import FormTextInput from './FormTextInput'
 import LoginButton from './LoginButton'
 
+// gather the login inputs and button here
+
 export default {
   components: { FormTextInput, LoginButton },
 
@@ -43,10 +45,14 @@ export default {
   },
 
   computed: {
+    // get the name before the @ symbol in email
+    // to check it in the password field
     emailName() {
       return this.email.substring(0, this.email.indexOf('@'))
     },
 
+    // the email rules are just a regex expression
+    // making sure it is a valid email
     emailRules() {
       return {
         expression:
@@ -54,6 +60,12 @@ export default {
       }
     },
 
+    // password rules are:
+    // must have at least 1 small case character
+    // at least 1 capital case character
+    // at least 1 number
+    // must be 8 or more characters
+    // must not contain part of email before the @
     passwordRules() {
       return {
         expression: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/,
@@ -64,24 +76,29 @@ export default {
   },
 
   methods: {
+    // run on email changed and check validity
     emailChanged(email, valid) {
       this.email = email
       this.emailValid = valid
       this.valid = this.emailValid && this.passwordValid
     },
 
+    // run on password changed and check validity
     passwordChanged(password, valid) {
       this.password = password
       this.passwordValid = valid
       this.valid = this.emailValid && this.passwordValid
     },
 
+    // form is submitted so try to login
     async login() {
       const loginSuccess = await this.$store.dispatch('auth/login', {
         email: this.email,
         password: this.password,
       })
 
+      // if login success then redirect to welcome page
+      // if login failed then show the error message
       loginSuccess ? this.$router.push('/welcome') : (this.loginFail = true)
     },
   },

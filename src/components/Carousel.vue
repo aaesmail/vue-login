@@ -15,6 +15,12 @@
 <script>
 import CirclePicker from './CirclePicker'
 
+// A carousel for switching between images and text
+// uses the circle picker for pagination
+// if the images are passed as an argument then be pretty generic
+// but only component that uses this in application so...
+// can be refactored later easily to pass images/text as props
+
 export default {
   components: {
     CirclePicker,
@@ -45,18 +51,25 @@ export default {
   },
 
   computed: {
+    // if there is a transition currently then slide out the current img
+    // if there is no transition then slide in the current img
     currentClass() {
       return this.transition ? 'sliding-out' : 'sliding-in'
     },
+    // based on page get the image
     currentImage() {
       return require(`../assets/` + this.images[this.current].name)
     },
+    // get the text based on page
     currentText() {
       return this.images[this.current].text
     },
   },
 
   methods: {
+    // on page change start animating the image out
+    // then after 500 milliseconds (animation time)
+    // change image and start sliding new image in
     slideChange(index) {
       this.transition = true
       this.transitionTimeout = setTimeout(() => {
@@ -66,6 +79,7 @@ export default {
     },
   },
 
+  // clear the timeout to avoid any memory leaks
   unmounted() {
     clearTimeout(this.transitionTimeout)
   },

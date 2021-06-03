@@ -5,6 +5,10 @@
 </template>
 
 <script>
+// the login button in the login form
+// pretty generic button if passed the displayed text as prop
+// but this is the only button that needs disabled property in the app so...
+
 export default {
   props: ['disabled'],
 

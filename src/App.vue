@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  // try to auto login user when app starts
   created() {
     this.$store.dispatch('auth/autoLogin')
   },

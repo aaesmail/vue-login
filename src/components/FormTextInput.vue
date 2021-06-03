@@ -18,9 +18,21 @@
 </template>
 
 <script>
+// A generic input field
+
 export default {
+  // accept the title on top of box
+  // the text in the right
+  // the type of text in the input
+  // a hint to display in the box
+  // the validation rules
+  // the error message to display in case of validation error
   props: ['title', 'secondaryText', 'type', 'hint', 'rules', 'errorMessage'],
 
+  // emit the input event
+  // called on input changed
+  // receives two arguments
+  // currentText & validation status
   emits: ['input'],
 
   data() {
@@ -32,12 +44,14 @@ export default {
   },
 
   computed: {
+    // class to display the red border if not valid
     inputClass() {
       if (!this.touched) return ''
 
       return this.valid ? '' : 'error'
     },
 
+    // show error message or not based on validation status
     showError() {
       if (!this.touched) return false
 
@@ -46,27 +60,37 @@ export default {
   },
 
   methods: {
+    // runs whenever the input in field changes
     inputChanged(event) {
+      // get the user input
       this.text = event.target.value
 
+      // start checking validation rules
       this.valid = true
 
+      // check the length rule
       if (this.rules.length) {
         this.valid = this.valid && this.text.length >= this.rules.length
       }
 
+      // check if there is a regex passed to validate
       if (this.rules.expression) {
         this.valid = this.valid && this.rules.expression.test(this.text)
       }
 
+      // check if the text doesn't contain certain text
       if (this.rules.notContain) {
         const loc = this.text.indexOf(this.rules.notContain)
         this.valid = this.valid && loc === -1
       }
 
+      // inform parent of change in text and validation status
       this.$emit('input', this.text, this.valid)
     },
 
+    // when input is focused and unfocused
+    // then confirm that the user used this
+    // input field at least once
     confirmTouched() {
       this.touched = true
     },
