@@ -30,5 +30,6 @@ body
 #app
   margin: 0
   padding: 0
+  overflow: auto
   height: 100%
 </style>

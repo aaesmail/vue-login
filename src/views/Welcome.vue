@@ -51,6 +51,7 @@ button
   font-weight: bold
   border: 1px solid $primary-color
   border-radius: 5px
+  outline: none
 
   &:hover
     cursor: pointer

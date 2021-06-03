@@ -37,7 +37,6 @@
 
 .wrap
   display: flex
-  height: 100%
   margin: 0
   flex-direction: column
   justify-content: center
@@ -95,21 +94,21 @@
   .btn-img
     background: #FFF
 
-  &:hover
+  &:hover, &:focus
     background: $button-active-blue
 
 .github
   background: $github-black
   border: 1px solid $github-black
   color: #FFF
-  &:hover
+  &:hover, &:focus
     background: $github-active
 
 .microsoft
   background: #FFF
   color: $primary-text-light
   border: 1px solid $primary-text-light
-  &:hover
+  &:hover, &:focus
     background: $microsoft-active
 
 .horizontal-break

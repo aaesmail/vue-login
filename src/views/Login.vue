@@ -4,46 +4,19 @@
       <Carousel />
     </div>
     <div class="column">
-      <LoginForm />
+      <LoginPart />
     </div>
   </div>
 </template>
 
 <script>
 import Carousel from '../components/Carousel'
-import LoginForm from '../components/LoginForm'
+import LoginPart from '../components/LoginPart'
 
 export default {
   components: {
     Carousel,
-    LoginForm,
-  },
-
-  data() {
-    return {
-      email: '',
-      password: '',
-    }
-  },
-
-  methods: {
-    async login() {
-      const loggedIn = await this.$store.dispatch('auth/login', {
-        email: this.email,
-        password: this.password,
-      })
-
-      if (loggedIn) {
-        // successful
-        this.$router.push('/welcome')
-      } else {
-        // invalid login information
-      }
-    },
-
-    logout() {
-      this.$store.dispatch('auth/logout')
-    },
+    LoginPart,
   },
 }
 </script>
@@ -53,19 +26,22 @@ export default {
 
 .container
   margin: 0
-  padding-top: 50%
+  padding: 0
   height: 100%
   display: flex
-  flex-direction: column-reverse
-  justify-content: space-around
+  flex-direction: column
+  justify-content: space-between
 
   @media (min-width: $layout-breakpoint-small)
     flex-direction: row
-    padding: 0
 
 .column
+    display: flex
+    flex-direction: column
+    justify-content: center
     margin: 0
     padding: 0
-    width: 100%
-    height: 100%
+    @media (min-width: $layout-breakpoint-small)
+      width: 100%
+      height: 100%
 </style>
