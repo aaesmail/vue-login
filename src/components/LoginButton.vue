@@ -1,5 +1,10 @@
 <template>
-  <button :class="disabledClass" :disabled="disabled" type="submit">
+  <button
+    id="login-button"
+    :class="disabledClass"
+    :disabled="disabled"
+    type="submit"
+  >
     Log in
   </button>
 </template>

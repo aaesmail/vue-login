@@ -7,13 +7,16 @@
       }}</span></label
     >
     <input
+      :id="id"
       :class="inputClass"
       :type="type"
       :placeholder="hint"
       @input="inputChanged"
       @blur="confirmTouched"
     />
-    <label v-if="showError" class="error-text">{{ errorMessage }}</label>
+    <label :id="id + '-error-message'" v-if="showError" class="error-text">{{
+      errorMessage
+    }}</label>
   </div>
 </template>
 
@@ -21,13 +24,22 @@
 // A generic input field
 
 export default {
+  // accepts the input id
   // accept the title on top of box
   // the text in the right
   // the type of text in the input
   // a hint to display in the box
   // the validation rules
   // the error message to display in case of validation error
-  props: ['title', 'secondaryText', 'type', 'hint', 'rules', 'errorMessage'],
+  props: [
+    'id',
+    'title',
+    'secondaryText',
+    'type',
+    'hint',
+    'rules',
+    'errorMessage',
+  ],
 
   // emit the input event
   // called on input changed

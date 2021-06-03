@@ -4,6 +4,7 @@
       Your email and/or password are incorrect
     </div>
     <FormTextInput
+      id="email-input"
       title="Work Email"
       type="email"
       hint="you@company.com"
@@ -12,6 +13,7 @@
       @input="emailChanged"
     />
     <FormTextInput
+      id="password-input"
       title="Password"
       secondaryText="Forgot password?"
       type="password"
