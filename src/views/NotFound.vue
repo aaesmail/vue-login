@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img src="../assets/404@2x.png" alt="Not found" />
+    <img src="../assets/404.png" alt="Not found" />
     <h1>404-Page Not Found!</h1>
     <p>Sorry, that page doesn't exist. What would you like to do?</p>
   </div>
@@ -15,6 +15,7 @@ div
   flex-direction: column
   justify-content: center
   align-items: center
+  background: #FFF
 
 img
   width: 300px
