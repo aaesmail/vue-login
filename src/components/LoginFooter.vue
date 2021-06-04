@@ -47,7 +47,7 @@
   color: $faded-text
 
 .company-logos
-  margin: 10px auto
+  margin: 5px auto 0 auto
   color: $faded-text
   display: flex
   width: 80%

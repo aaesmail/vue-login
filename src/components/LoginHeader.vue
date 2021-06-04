@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <img src="../assets/logo.png" width="100" alt="instabug logo" />
+    <img src="../assets/logo.png" width="75" alt="instabug logo" />
     <p class="header">Log in to Instabug</p>
     <div class="social google">
       <div class="btn-img">
@@ -45,6 +45,7 @@
 .header
   color: $primary-text-light
   font-size: 25px
+  margin: 0
 
 .social
   display: flex
